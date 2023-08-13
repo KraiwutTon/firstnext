@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstnext-app-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: firstnext-app
+  template:
+    metadata:
+      labels:
+        app: firstnext-app
+    spec:
+      containers:
+        - name: firstnext-app-container
+          image: firstnext-image:firstnexttag
+          ports:
+            - containerPort: 3000
